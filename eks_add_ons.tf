@@ -1,5 +1,5 @@
 module "eks_add_ons" {
-  source = "terraform-aws-modules/alb/aws//modules/eks-managed-node-group"
+  source = "terraform-aws-modules/eks/aws//modules/eks-addon-manager"
   cluster_name = var.eks_cluster_name
   addons = {
     kube-proxy = {
