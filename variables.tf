@@ -29,3 +29,8 @@ variable "eks_cluster_version" {
   description = "eks cluster version"
   type = string
 }
+
+# variable "eks_node_group_name" {
+#   description = "eks node grpoup name"
+#   type = string
+# }
