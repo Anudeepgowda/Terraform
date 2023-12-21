@@ -6,7 +6,7 @@ module "eks_managed_node_groups" {
      min_size = 1
     max_size = 2
     desired_size = 1
-    instance_types = [t2.micro]
+    instance_types = ["t2.micro"]
     instance_name = "dev-cluster"
     }
     
