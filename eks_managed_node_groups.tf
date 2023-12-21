@@ -1,6 +1,6 @@
 module "eks_managed_node_groups" {
   source = "terraform-aws-modules/eks/aws"
-    //cluster_name = "test"
+  cluster_name    = var.eks_cluster_name
    eks_managed_node_groups = {
     custom_node = {
      min_size = 1
