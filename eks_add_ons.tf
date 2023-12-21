@@ -12,6 +12,8 @@ module "eks_add_ons" {
         enabled = true
     }
   }
+    subnet_ids = module.vpc.private_subnets
+
 
   tags = {
         Environment = var.environment

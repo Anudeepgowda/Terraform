@@ -15,7 +15,8 @@ module "eks_managed_node_groups" {
         Environment = var.environment
     }
    }
-   
+     subnet_ids = module.vpc.private_subnets
+
    
 
     tags = {
