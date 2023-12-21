@@ -10,7 +10,17 @@ module "eks" {
   subnet_ids = module.vpc.private_subnets
 
   eks_managed_node_groups = module.eks_managed_node_groups
-  cluster_addons = module.eks_add_ons
+  cluster_addons ={
+    coredns = {
+      most_recent = true
+    }
+    kube-proxy = {
+      most_recent = true
+    }
+    vpc-cni = {
+      most_recent = true
+    }
+  }
   
   depends_on = [ aws_iam_role_policy_attachment.AmazonEKSClusterPolicy,
   aws_iam_role_policy_attachment.AmazonEKSServicePolicy ]
