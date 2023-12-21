@@ -16,6 +16,7 @@ module "eks_managed_node_groups" {
     }
    }
    
+   
 
     tags = {
         Environment = var.environment
