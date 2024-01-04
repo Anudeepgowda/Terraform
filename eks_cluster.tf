@@ -1,4 +1,5 @@
 module "eks" {
+  //count = var.default_node_enabled ? 1 : 0
   source = "terraform-aws-modules/eks/aws"
 
   cluster_name    = var.eks_cluster_name
@@ -9,7 +10,6 @@ module "eks" {
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
 
-  eks_managed_node_groups = module.eks_managed_node_groups
   cluster_addons ={
     coredns = {
       most_recent = true
@@ -21,9 +21,22 @@ module "eks" {
       most_recent = true
     }
   }
+
+  #  eks_managed_node_groups = {
+  #   nodes = {
+  #     min_size     = 1
+  #     max_size     = 3
+  #     desired_size = 2
+
+  #     instance_type = ["t2.micro"]
+  #     create_iam_role = true
+  #   }
+  # }
   
   depends_on = [ aws_iam_role_policy_attachment.AmazonEKSClusterPolicy,
   aws_iam_role_policy_attachment.AmazonEKSServicePolicy ]
+
+  eks_managed_node_groups = module.eks_managed_node_groups
 
   tags = {
     Environment = var.environment

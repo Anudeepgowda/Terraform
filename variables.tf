@@ -1,6 +1,7 @@
 variable "vpc_cidr" {
   description = "VPC CIDR"
   type        = string
+  default = "192.168.0.0/16"
 }
 
 variable "private_subnets" {
@@ -18,16 +19,27 @@ variable "public_subnets" {
 variable "environment" {
   description = "environment type"
   type = string
+  default = "dev"
 }
 
 variable "eks_cluster_name" {
   description = "cluster name"
   type = string
+    default = "dev-cosmos"
+
 }
 
 variable "eks_cluster_version" {
   description = "eks cluster version"
   type = string
+  default = "1.28"
+}
+
+variable "default_node_enabled" {
+  description = "enable default"
+  type = bool
+  default = false
+  
 }
 
 # variable "eks_node_group_name" {
