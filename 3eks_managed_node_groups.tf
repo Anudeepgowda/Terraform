@@ -1,5 +1,4 @@
 module "eks_managed_node_groups" {
-  count = var.default_node_enabled ? 1 : 0
   source = "terraform-aws-modules/eks/aws"
   cluster_name    = var.eks_cluster_name
    eks_managed_node_groups = {

@@ -38,7 +38,7 @@ variable "eks_cluster_version" {
 variable "default_node_enabled" {
   description = "enable default"
   type = bool
-  default = false
+  default = true
   
 }
 
