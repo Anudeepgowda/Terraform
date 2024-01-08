@@ -20,11 +20,21 @@ module "eks" {
       most_recent = true
     }
   }
-  
-  depends_on = [ aws_iam_role_policy_attachment.AmazonEKSClusterPolicy,
-  aws_iam_role_policy_attachment.AmazonEKSServicePolicy ]
+  #    eks_managed_node_groups = {
+  #   nodes = {
+  #     min_size     = 1
+  #     max_size     = 3
+  #     desired_size = 1
 
-  eks_managed_node_groups = module.eks_managed_node_groups
+  #     instance_type = ["t2.micro"]
+      
+  #   }
+  # }
+
+  # depends_on = [ aws_iam_role_policy_attachment.AmazonEKSClusterPolicy,
+  # aws_iam_role_policy_attachment.AmazonEKSServicePolicy ]
+
+  //eks_managed_node_groups = module.eks_managed_node_groups
 
   tags = {
     Environment = var.environment
